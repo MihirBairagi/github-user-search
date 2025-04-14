@@ -20,13 +20,13 @@ function App() {
         onClick={() => dispatch(toggleTheme())}
         style={{
           position: 'fixed',
-          top: 10,
-          right: 10,
-          padding: '8px 12px',
+          top: '1rem',
+          right: '1rem',
+          padding: '0.7rem 1rem',
           background: theme === 'dark' ? '#444' : '#ddd',
           color: theme === 'dark' ? '#fff' : '#000',
           border: 'none',
-          borderRadius: '6px',
+          borderRadius: '0.5rem',
           cursor: 'pointer',
           zIndex: 1000,
         }}

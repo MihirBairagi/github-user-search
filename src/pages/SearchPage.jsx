@@ -60,28 +60,30 @@ function SearchPage() {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Search Github</h1>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Enter username"
-        style={{ padding: '0.5rem', width: '300px' }}
-      />
-      <button onClick={handleSearch} style={{ marginLeft: '1rem', padding: '0.5rem' }}>
-        Search
-      </button>
+    <div style={{ padding: '2rem'}}>
+      <h1 style={{textAlign: 'center'}} className='p-8' >Search Github</h1>
+      <div className="input-box" style={{textAlign: 'center'}}>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Enter username"
+          style={{ padding: '0.5rem', width: '20rem' }}
+          />
+        <button onClick={handleSearch} style={{ marginLeft: '1rem', padding: '0.5rem' }}>
+          Search
+        </button>
+      </div>
 
-      {loading && <p>Loading...</p>}
+      {loading && <p style={{textAlign: "center"}} >Loading...</p>}
 
       {/* API Fetch Counter */}
       {/* <p style={{ marginTop: '1rem' }}>
         API fetch - {String(apiFetchCount).padStart(2, '0')}
       </p> */}
 
-      <div style={{ marginTop: '2rem' }}>
+      <div style={{ marginTop: '2rem', display: 'flex', flexWrap: 'wrap', justifyContent:'center', gap: '2rem'}}>
         {users.map((user) => (
           <div
             key={user.login}
@@ -90,17 +92,16 @@ function SearchPage() {
               display: 'flex',
               alignItems: 'center',
               cursor: 'pointer',
-              marginBottom: '1rem',
               border: '1px solid #ccc',
               padding: '1rem',
-              borderRadius: '8px',
-              width: '400px'
+              borderRadius: '1rem',
+              width: '20rem'
             }}
           >
             <img
               src={user.avatar_url}
               alt={user.login}
-              style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '1rem' }}
+              style={{ width: '5rem', height: '5rem', borderRadius: '50%', marginRight: '1rem' }}
             />
             <span>{user.login}</span>
           </div>
@@ -108,7 +109,7 @@ function SearchPage() {
       </div>
 
       {users.length > 0 && (
-        <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <button
             onClick={() => handlePageChange(page - 1)}
             disabled={page === 1}
